@@ -1,0 +1,215 @@
+@use '/src/sass/base/variables.scss' as *;
+
+.touch {
+    padding-top: 60px;
+
+    &__wrapper {
+        margin-top: 60px;
+    }
+
+    &__img-tea,
+    &__img-vase {
+        display: none;
+    }
+
+
+    &__fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__label {
+        display: block;
+        color: $dark;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+
+        &:nth-child(2) {
+            margin-top: 8px;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: 48px;
+        padding: 10px 15px;
+        border-radius: 2px;
+        background: #fff;
+        border: 1px solid #E2E1E5;
+        color: $dark;
+
+        &::placeholder {
+            color: $ui-disabled;
+            font-size: 14px;
+        }
+
+        &:focus {
+            border: none;
+            outline: 1px solid $dark;
+        }
+    }
+
+    &__textarea {
+        width: 100%;
+        height: 132px;
+        padding: 10px 15px;
+        border-radius: 2px;
+        background: #fff;
+        border: 1px solid #E2E1E5;
+        color: $dark;
+        resize: none;
+
+        &::placeholder {
+            color: $ui-disabled;
+            font-size: 14px;
+        }
+
+        &:focus {
+            border: none;
+            outline: 1px solid $dark;
+        }
+    }
+
+    &__check-block {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+
+        a {
+            color: #A22DC6;
+            text-decoration: none;
+            margin-left: 4px;
+        }
+    }
+
+    &__checkbox {
+        margin-right: 15px;
+        width: 15px;
+        height: 15px;
+    }
+
+    &__btn {
+        margin-top: 20px;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .touch {
+        &__wrapper {
+            margin: 45px 0 0 24px;
+        }
+
+        &__col-form {
+            display: flex;
+            // width: 100%;
+            align-items: flex-end;
+            justify-content: space-between;
+            // padding-right: 48px;
+
+        }
+
+        &__form {
+            padding-right: 48px;
+        }
+
+        &__img {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            &-vase {
+                display: block;
+                width: 85px;
+                height: 85px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .touch {
+
+        &__wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 80px 0 0 0;
+        }
+
+        &__img {
+            display: block;
+            width: auto;
+
+            &-tea {
+                display: block;
+                width: 550px;
+                height: 341px;
+                object-fit: cover;
+                box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        &__col-tea {
+            padding-right: 20px;
+        }
+
+        &__col-form {
+            padding-left: 20px;
+        }
+
+        &__form {
+            padding-right: 0;
+        }
+
+
+        &__input {
+            width: 100%;
+            height: 48px;
+            padding: 10px 15px;
+            border-radius: 2px;
+            background: #fff;
+            border: 1px solid #E2E1E5;
+            transition: all 0.08s ease-in-out;
+
+            &:hover {
+                border: none;
+                outline: 1px solid $dark;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .touch {
+        padding-top: 100px;
+
+        &__img-tea {
+            width: 100%;
+            height: 356px;
+            object-fit: cover;
+        }
+
+        &__wrapper {
+            padding-right: 75px;
+        }
+
+        &__col-tea {
+
+            padding: 0;
+        }
+
+        &__col-form {
+            padding-left: 143px;
+        }
+
+        &__fieldset {
+            display: flex;
+            justify-content: space-between;
+            column-gap: 45px;
+        }
+
+    }
+}
