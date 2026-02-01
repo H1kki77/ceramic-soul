@@ -3,6 +3,10 @@
 .works {
     padding-top: 60px;
 
+    &__wrapper {
+        position: relative;
+    }
+
     &__slider {
         margin-top: 40px;
     }
@@ -49,10 +53,6 @@
 
 @media screen and (min-width: 1200px) {
     .works {
-        &__wrapper {
-            position: relative;
-        }
-
         .swiper-pagination {
             bottom: -30px;
         }
