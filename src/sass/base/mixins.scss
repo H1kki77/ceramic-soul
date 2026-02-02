@@ -22,3 +22,11 @@
     background-color: transparent;
     сursor: pointer;
 }
+
+@mixin copyright {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: $light;
+}
