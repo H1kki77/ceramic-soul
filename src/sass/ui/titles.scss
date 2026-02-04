@@ -7,6 +7,7 @@
     font-style: italic;
 }
 
+.title-h1,
 .title-h2 {
     @include title;
     font-size: 32px;
@@ -15,6 +16,14 @@
 .title-h3 {
     @include title;
     font-size: 20px;
+}
+
+.title-h4 {
+    @include title;
+    font-size: 16px;
+    color: #000;
+    text-transform: none;
+    text-align: left;
 }
 
 .footer__title {
@@ -26,6 +35,8 @@
 
 
 @media screen and (min-width: 768px) {
+
+    .title-h1,
     .title-h2 {
         font-size: 36px;
     }
@@ -36,6 +47,8 @@
 }
 
 @media screen and (min-width: 1200px) {
+
+    .title-h1,
     .title-h2 {
         font-size: 40px;
     }
