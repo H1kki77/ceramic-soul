@@ -30,3 +30,25 @@
     font-weight: 400;
     color: $light;
 }
+
+@mixin angle-decoration {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 1px;
+        background-color: #000;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 200px;
+        width: 1px;
+        background-color: #000;
+    }
+}

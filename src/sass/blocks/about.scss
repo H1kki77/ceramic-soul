@@ -1,0 +1,95 @@
+@use '/src/sass/base/variables.scss' as *;
+
+.about {
+    padding-top: 60px;
+
+    &__wrapper {
+        margin-top: 60px;
+    }
+
+    &__title {
+        margin-top: 60px;
+    }
+
+    &__img {
+
+        img {
+            width: 100%;
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &__text {
+        margin-top: 35px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        color: $dark;
+        line-height: normal;
+        letter-spacing: normal;
+
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .about {
+        &__img {
+            padding: 0 60px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    .about {
+
+        &__wrapper {
+            gap: 20px;
+        }
+
+        &__img {
+            padding: 0;
+            max-width: 550px;
+
+            img {
+                height: 378px;
+                object-fit: cover;
+            }
+        }
+
+        &__text {
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+
+    .about {
+        padding-top: 40px;
+
+        &__title {
+            margin-top: 100px;
+        }
+
+        &__wrapper {
+            margin-top: 100px;
+        }
+
+        &__img {
+            max-width: 700px;
+
+            img {
+                height: 481px;
+                object-fit: cover;
+            }
+        }
+
+        &__text {
+            font-size: 20px;
+        }
+    }
+}

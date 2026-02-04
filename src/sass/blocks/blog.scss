@@ -1,0 +1,123 @@
+@use "/src/sass/base/variables.scss" as *;
+@use "/src//sass/base/mixins.scss" as *;
+
+.blog {
+    padding: 50px 0 60px;
+
+    &__title {
+        margin-top: 60px;
+    }
+
+    &__title-h3 {
+        text-align: left;
+    }
+
+    &__wrapper {
+        margin-top: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    &__card {
+        border: 1px solid $dark;
+        background: $light;
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    &__data {
+        &-column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 25px 25px 0 25px;
+        }
+    }
+
+    &__text {
+        margin-top: 25px;
+        padding: 0 25px 25px 25px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: normal;
+        font-style: normal;
+        color: $dark;
+    }
+
+    &__img {
+        max-inline-size: calc(100% + 2px);
+        width: calc(100% + 2px);
+        transform: translateX(-1px) translateY(-1px);
+    }
+
+    &__btn {
+        transform: translateY(-1px);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .blog {
+        &__wrapper {
+            padding: 25px 25px 0 25px;
+            position: relative;
+            @include angle-decoration;
+        }
+
+        &__text {
+            margin-top: 15px;
+        }
+
+        &__data {
+            &-column {
+                gap: 0;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .blog {
+        &__wrapper {
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        &__card {
+            width: 520px;
+        }
+
+        &__img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+    }
+}
+
+
+
+@media screen and (min-width:1920px) {
+    .blog {
+        padding: 40px 0 100px;
+
+        &__title {
+            margin-top: 100px;
+        }
+
+        &__wrapper {
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        &__card {
+            width: 670px;
+        }
+
+        &__img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+    }
+}
