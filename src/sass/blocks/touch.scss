@@ -94,6 +94,13 @@
     &__btn {
         margin-top: 20px;
     }
+
+    &__input.just-validate-error-field,
+    &__textarea.just-validate-error-field {
+        border: none;
+        outline: 1px solid $ui-error;
+        color: $dark;
+    }
 }
 
 

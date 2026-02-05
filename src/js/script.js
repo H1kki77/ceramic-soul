@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import JustValidate from 'just-validate';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,7 +16,7 @@ const burger = document.querySelector(".burger"),
 
 burger.addEventListener("click", () => {
     menu.classList.add("header__menu_active");
-    document.body.style.overflow = "hidde";
+    document.body.style.overflow = "hidden";
 });
 
 close.addEventListener("click", () => {
@@ -47,7 +48,8 @@ try {
             },
             // when window width is >= 1920px
             1920: {
-                spaceBetween: 35
+                spaceBetween: 35,
+                slidesPerView: 3,
             },
         },
         modules: [Navigation, Pagination],
@@ -70,4 +72,78 @@ try {
     });
 
     contents.forEach((c, i) => (c.style.display = i === 0 ? "grid" : "none"));
+} catch (e) { }
+
+
+try {
+    const validatorTouch = new JustValidate(".touch__form");
+
+    validatorTouch
+        .addField("#name", [
+            {
+                rule: "required",
+                errorMessage: "Please, fill the name",
+            },
+            {
+                rule: "minLength",
+                value: 2,
+                errorMessage: "Minimum amount of chars is 2",
+            },
+        ])
+        .addField("#email", [
+            {
+                rule: "required",
+            },
+            {
+                rule: "email",
+            },
+        ])
+        .addField("#question", [
+            {
+                rule: "required",
+                errorMessage: "Please, leave your question",
+
+            },
+            {
+                rule: "minLength",
+                value: 5,
+                errorMessage: "Minimum amount of chars is 5",
+
+            },
+        ],
+            {
+                errorsContainer: document
+                    .querySelector('#question')
+                    .parentElement.querySelector(".error-message"),
+            }
+        )
+        .addField("#checkbox", [
+            {
+                rule: "required",
+            }
+        ], {
+            errorsContainer: document
+                .querySelector('#checkbox')
+                .parentElement.parentElement.querySelector(".checkbox-error-message"),
+        });
+
+} catch (e) { }
+
+
+try {
+    const validatorFooter = new JustValidate(".footer__form");
+    validatorFooter
+        .addField("#footer-email", [
+            {
+                rule: "required"
+            },
+            {
+                rule: "email"
+            },
+        ])
+        .addField("#footer-checkbox", [
+            {
+                rule: "required",
+            },
+        ])
 } catch (e) { }
