@@ -75,14 +75,12 @@ try {
 } catch (e) { }
 
 try {
-    const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.header__link, .header__menu-link');
+    const currentUrl = window.location.href;
+
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (currentPath.includes(linkPath) && linkPath !== "/index") {
-            link.classList.add('active');
-        }
-        else if ((currentPath === "/" || currentPath.includes("index")) && linkPath === "/index") {
+
+        if (link.href === currentUrl) {
             link.classList.add('active');
         }
     });
