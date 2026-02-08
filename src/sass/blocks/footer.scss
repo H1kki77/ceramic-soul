@@ -30,17 +30,42 @@
 
     &__input {
         width: 100%;
-        margin-top: 40px;
-        padding-bottom: 15px;
+        margin-top: 25px;
+        padding: 15px 0;
         background-color: transparent;
         border: none;
         border-bottom: 1px solid $ui-active;
         color: $ui-active;
 
+
+        &:focus-visible {
+            outline: none;
+
+
+            &::placeholder {
+                color: grey;
+            }
+        }
     }
 
     &__input::placeholder {
+        transition: all 0.2s ease;
         color: $ui-active;
+    }
+
+    &__input.just-validate-error-field {
+        outline: none;
+        border-bottom: 1px solid $ui-error;
+
+        &::placeholder {
+            color: $ui-error;
+        }
+    }
+
+    &__textarea.just-validate-error-field {
+        border: none;
+        outline: 1px solid $ui-error;
+        color: $dark;
     }
 
     &__check-block {

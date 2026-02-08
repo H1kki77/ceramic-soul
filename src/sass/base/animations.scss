@@ -1,0 +1,24 @@
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideInBack {
+    0% {
+        transform: translateX(100%);
+    }
+
+    70% {
+        transform: translateX(-30%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+
+}

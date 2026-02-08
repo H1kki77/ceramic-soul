@@ -74,6 +74,21 @@ try {
     contents.forEach((c, i) => (c.style.display = i === 0 ? "grid" : "none"));
 } catch (e) { }
 
+try {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.header__link, .header__menu-link');
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (currentPath.includes(linkPath) && linkPath !== "/index") {
+            link.classList.add('active');
+        }
+        else if ((currentPath === "/" || currentPath.includes("index")) && linkPath === "/index") {
+            link.classList.add('active');
+        }
+    });
+
+} catch (e) { }
+
 
 try {
     const validatorTouch = new JustValidate(".touch__form");
@@ -120,11 +135,28 @@ try {
         .addField("#checkbox", [
             {
                 rule: "required",
+                errorMessage: "Please agree with the terms to send your question",
             }
-        ], {
-            errorsContainer: document
-                .querySelector('#checkbox')
-                .parentElement.parentElement.querySelector(".checkbox-error-message"),
+        ],
+            {
+                errorsContainer: document
+                    .querySelector('#checkbox')
+                    .parentElement.parentElement.querySelector(".checkbox-error-message"),
+            }
+        )
+        .onSuccess((event) => {
+            const form = event.currentTarget;
+            const formData = new FormData(form);
+
+            fetch("https://httpbin.org/post", {
+                method: "POST",
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log("Success", data);
+                    form.reset();
+                });
         });
 
 } catch (e) { }
@@ -146,4 +178,18 @@ try {
                 rule: "required",
             },
         ])
+        .onSuccess((event) => {
+            const form = event.currentTarget;
+            const formData = new FormData(form);
+
+            fetch("https://httpbin.org/post", {
+                method: "POST",
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log('Newsletter subscription successful!', data);
+                    form.reset();
+                });
+        });
 } catch (e) { }
