@@ -95,7 +95,7 @@
             transition: font-weight 0.1s;
 
             &.active {
-                color: black;
+                color: $dark;
                 font-weight: 600;
             }
 

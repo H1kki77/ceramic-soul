@@ -113,10 +113,17 @@
             }
 
             &-text {
+                position: relative;
                 font-weight: 400;
                 font-size: 16px;
                 color: $light;
                 text-decoration: none;
+                transition: font-weight 0.1s;
+
+                &.active {
+                    color: $light;
+                    font-weight: 600;
+                }
             }
         }
     }
@@ -158,6 +165,32 @@
 
         .nav__wrapper {
             margin: 0;
+
+            .nav__item-text {
+                transition: color 0.3s ease;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -5px;
+                    width: 0%;
+                    height: 1px;
+                    background-color: $light;
+                    transition: width 0.3s ease-in-out;
+                }
+
+                &.active {
+                    font-weight: 400;
+                }
+
+                &:hover,
+                &.active {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
         }
 
         &__contacts {

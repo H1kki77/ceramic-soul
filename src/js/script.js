@@ -75,7 +75,7 @@ try {
 } catch (e) { }
 
 try {
-    const navLinks = document.querySelectorAll('.header__link, .header__menu-link');
+    const navLinks = document.querySelectorAll('.header__link, .header__menu-link, .nav__item-text');
     const currentUrl = window.location.href;
 
     navLinks.forEach(link => {
