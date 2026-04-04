@@ -42,7 +42,7 @@
         height: 100vh;
         background-color: $light;
         transition: all 0.5s;
-        z-index: 1000;
+        z-index: 10;
 
         &_active {
             left: 0vw;
@@ -118,6 +118,70 @@
     }
 }
 
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: 0.3s;
+    width: 100%;
+    height: 100%;
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        position: absolute;
+        z-index: 20;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $light;
+        text-align: center;
+        width: 300px;
+        min-height: 300px;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .cart-modal__close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: $dark;
+            font-size: 30px;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        &-text {
+            color: $dark;
+            font-size: 18px;
+        }
+    }
+}
+
 @media screen and (min-width: 768px) {
     .header {
         &__menu {
@@ -173,6 +237,18 @@
 
     .burger {
         visibility: hidden;
+    }
+
+    .cart-modal {
+
+        &__content {
+            width: 700px;
+            min-height: 500px;
+
+            &-text {
+                font-size: 24px;
+            }
+        }
     }
 }
 

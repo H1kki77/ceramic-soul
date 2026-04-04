@@ -191,3 +191,39 @@ try {
                 });
         });
 } catch (e) { }
+
+function showModal(modal) {
+    modal.classList.add('show');
+    modal.classList.remove('hide');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(modal) {
+    modal.classList.remove('show');
+    modal.classList.add('hide');
+    document.body.style.overflow = '';
+}
+
+const shoppingBag = document.querySelector('.icon-shopping-bag');
+
+if (shoppingBag) {
+    const cartModal = document.querySelector('.cart-modal');
+    const cartClose = document.querySelector('.cart-modal__close');
+    shoppingBag.addEventListener('click', (e) => {
+        e.preventDefault();
+        showModal(cartModal);
+    });
+    cartClose.addEventListener('click', () => {
+        closeModal(cartModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape' && cartModal.classList.contains('show')) {
+            closeModal(cartModal);
+        }
+    });
+    cartModal.addEventListener('click', (e) => {
+        if (e.target.classList.contains('cart-modal__overlay') && cartModal.classList.contains('show')) {
+            closeModal(cartModal);
+        }
+    });
+} 
